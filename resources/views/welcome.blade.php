@@ -63,7 +63,7 @@
                 createTask:function (e) {
                     e.preventDefault();
                     this.$http.post('api/tasks', {body:this.notes}).then(function (response) {
-                        this.list.push(response.task);
+                        this.list.push(response.data.task);
                     }, function () {
                         alert('error');
                     }).bind(this);

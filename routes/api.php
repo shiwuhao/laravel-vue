@@ -22,4 +22,4 @@ Route::get('/todos', function(){
        ['id' => 1, 'title' => 'one', 'completed' => false],
        ['id' => 2, 'title' => 'two', 'completed' => true],
    ]);
-})->middleware('api', 'cros');
+})->middleware('api');

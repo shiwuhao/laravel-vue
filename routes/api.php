@@ -23,5 +23,3 @@ Route::get('/todos', function(){
        ['id' => 2, 'title' => 'two', 'completed' => true],
    ]);
 })->middleware('api');
-
-echo 111;

@@ -28,3 +28,11 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
         'body' => $faker->paragraph,
     ];
 });
+
+$factory->define(App\Todo::class, function (Faker\Generator $faker) {
+    return [
+        'body' => $faker->paragraph,
+        'computed' => rand(0,1),
+    ];
+});
+

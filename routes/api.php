@@ -17,9 +17,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//todo list
 Route::get('/todos', function(){
-   return response()->json([
-       ['id' => 1, 'title' => 'one', 'completed' => false],
-       ['id' => 2, 'title' => 'two', 'completed' => true],
-   ]);
-})->middleware('api');
+   return \App\Todo::all();
+})->middleware('api', 'cors');
+
+Route::get('/todo/{id}', function($id){
+    return \App\Todo::find($id);
+})->middleware('api', 'cors');
+
+// todo create
+Route::post('/todo/create', function(Request $request){
+    $data = ['body' => $request->body, 'computed' => 0];
+    $todo = \App\Todo::create($data);
+    return $todo;
+});
+
+Route::patch('/todo/{id}/completed', function($id){
+   $todo = \App\Todo::find($id);
+   $todo->completed = !$todo->completed;
+   $todo->save();
+   return $todo;
+});
+

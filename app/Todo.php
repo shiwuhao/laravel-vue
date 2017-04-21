@@ -12,5 +12,5 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     //
-    protected $fillble=['body'];
+    protected $fillable=['body'];
 }

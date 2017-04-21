@@ -16,14 +16,14 @@ class CreateTodosTable extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->increments('id');
             $table->text('body');
-            $table->boolean('computed')->default(0);
+            $table->boolean('completed')->default(0);
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *g
      * @return void
      */
     public function down()

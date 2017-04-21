@@ -32,7 +32,7 @@ $factory->define(App\Task::class, function (Faker\Generator $faker) {
 $factory->define(App\Todo::class, function (Faker\Generator $faker) {
     return [
         'body' => $faker->paragraph,
-        'computed' => rand(0,1),
+        'completed' => rand(0,1),
     ];
 });
 

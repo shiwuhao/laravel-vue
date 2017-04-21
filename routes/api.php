@@ -31,12 +31,17 @@ Route::post('/todo/create', function(Request $request){
     $data = ['body' => $request->body, 'computed' => 0];
     $todo = \App\Todo::create($data);
     return $todo;
-});
+})->middleware('api', 'cors');
 
 Route::patch('/todo/{id}/completed', function($id){
    $todo = \App\Todo::find($id);
-   $todo->completed = !$todo->completed;
+   $todo->completed = (int)!$todo->completed;
    $todo->save();
    return $todo;
-});
+})->middleware('api', 'cors');
+
+Route::delete('/todo/{id}', function($id){
+    $todo = \App\Todo::destroy($id);
+    return $todo;
+})->middleware('api', 'cors');
 
